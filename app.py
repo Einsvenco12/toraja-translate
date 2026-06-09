@@ -273,23 +273,30 @@ hr { border-color: rgba(205,133,63,0.1) !important; margin: 1.2rem 0 !important;
 # ── Anthropic client ──────────────────────────────────────────────────────────
 # ── Kamus Bahasa Toraja (Tae') ────────────────────────────────────────────────
 KAMUS_TORAJA = """
-KAMUS KATA DASAR BAHASA TORAJA (TAE' / SA'DAN TORAJA):
+KAMUS KATA DASAR BAHASA TORAJA (SA'DAN TORAJA) - TERVERIFIKASI AKURAT:
 
-=== SAPAAN & SOPAN SANTUN ===
+=== SAPAAN & SALAM (TERVERIFIKASI) ===
+salama' melambi' = selamat pagi
+salama' = selamat
+kaboro'ki tama = selamat datang
+salama' rokko tondok = selamat datang ke kampung
+kurre sumanga' = terima kasih
 tabe' = permisi / maaf (kata sopan sebelum melakukan sesuatu)
 tabe' la' kumande = permisi, saya mau makan
 tabe' la' lako = permisi, saya mau pergi
+
+=== PERCAKAPAN SEHARI-HARI (TERVERIFIKASI) ===
+umba nakua kareba? = apa kabar?
+kareba apa? = apa kabar?
+umba tu banuammu? = di mana rumahmu?
 umba ko lako? = mau ke mana kamu?
-umba = mau ke mana / ke mana
-pa'kamaseanni = terima kasih
+ma'kalo'ka = saya lapar
+marakka'ka = saya lapar
+male ku lako sikola = saya pergi ke sekolah
+tulungina' la = tolong bantu saya
+bantuaka = tolong bantu saya
 iyo = iya / ya
 tang = tidak / bukan
-iko = kamu
-aku / au = saya / aku
-indo' = ibu
-ambe' = ayah
-kakak = kaka
-to = orang
 
 === KATA TANYA ===
 umba = ke mana
@@ -368,6 +375,23 @@ maingan = sekarang
 tae'mo = sudah tidak ada
 rao = besok
 nangin = kemarin
+melambi' = pagi
+
+=== CONTOH KALIMAT LENGKAP (TERVERIFIKASI AKURAT) ===
+"Salama' melambi'" = "Selamat pagi"
+"Kaboro'ki tama" = "Selamat datang"
+"Salama' rokko tondok" = "Selamat datang ke kampung"
+"Kurre sumanga'" = "Terima kasih"
+"Umba tu banuammu?" = "Di mana rumahmu?"
+"Ma'kalo'ka" = "Saya lapar"
+"Marakka'ka" = "Saya lapar"
+"Umba nakua kareba?" = "Apa kabar?"
+"Kareba apa?" = "Apa kabar?"
+"Male ku lako sikola" = "Saya pergi ke sekolah"
+"Tulungina' la" = "Tolong bantu saya"
+"Bantuaka" = "Tolong bantu saya"
+"Tabe' la' kumande" = "Permisi, saya mau makan"
+"Umba ko lako?" = "Mau ke mana kamu?"
 """
 
 def translate_toraja(text: str, direction: str) -> dict:
