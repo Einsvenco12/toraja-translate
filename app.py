@@ -7,7 +7,7 @@ import requests
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Toraja Translate AI",
-    page_icon="🏡",
+
     layout="centered",
 )
 
@@ -478,7 +478,7 @@ Untuk {src_label} ke {tgt_label}."""
 # Hero
 st.markdown("""
 <div class="hero">
-  <span class="hero-ornament">🏡</span>
+  <span class="hero-ornament">🛖</span>
   <h1>Toraja<span>Translate</span></h1>
   <p class="hero-sub">Penerjemah Bahasa Toraja · Berbasis AI</p>
   <div class="divider"></div>
