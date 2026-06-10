@@ -308,10 +308,10 @@ mbani = di mana (posisi/lokasi)
 
 === KATA KERJA UMUM ===
 kumande = makan
-minum = minum
+minum = mangiru
 lako = pergi
 mai = datang / kemari
-tindo = tidur
+mam'ma = tidur
 bangun = bangun
 masak = memasak
 pangngala' = ambil
@@ -374,7 +374,7 @@ allo = siang / hari
 maingan = sekarang
 tae'mo = sudah tidak ada
 rao = besok
-nangin = kemarin
+sangmai = kemarin
 melambi' = pagi
 
 === CONTOH KALIMAT LENGKAP (TERVERIFIKASI AKURAT) ===
