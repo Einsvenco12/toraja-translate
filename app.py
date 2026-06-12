@@ -529,6 +529,7 @@ kata = kada
 kaya = sugi'
 ikan = bale
 kayu = kayu
+kamu = iko
 kecewa = mallo
 kecil = bitti'
 kejar = ula'
