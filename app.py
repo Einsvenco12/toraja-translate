@@ -675,7 +675,7 @@ PENTING: Gunakan kamus referensi berikut sebagai acuan utama terjemahan. Kamus i
 ATURAN TERJEMAHAN:
 1. Selalu gunakan kamus di atas sebagai referensi utama
 2. Jika kata ada di kamus, WAJIB gunakan terjemahan dari kamus tersebut
-3. Tabe' la' kumande = "Permisi, saya mau makan" (BUKAN selamat datang)
+3. Tabe' la' kumande na = "Permisi, saya mau makan" (BUKAN selamat datang)
 4. Umba ko lako = "Mau ke mana kamu?" 
 5. Mbani = "di mana" (untuk menanyakan lokasi/posisi)
 6. Untuk kata yang tidak ada di kamus, terjemahkan berdasarkan pengetahuan bahasa Toraja
