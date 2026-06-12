@@ -308,10 +308,10 @@ mbani = di mana (posisi/lokasi)
 
 === KATA KERJA UMUM ===
 kumande = makan
-minum = mangiru
+minum = minum
 lako = pergi
 mai = datang / kemari
-mam'ma = tidur
+tindo = tidur
 bangun = bangun
 masak = memasak
 pangngala' = ambil
@@ -374,7 +374,7 @@ allo = siang / hari
 maingan = sekarang
 tae'mo = sudah tidak ada
 rao = besok
-sangmai = kemarin
+nangin = kemarin
 melambi' = pagi
 
 === CONTOH KALIMAT LENGKAP (TERVERIFIKASI AKURAT) ===
@@ -529,7 +529,6 @@ kata = kada
 kaya = sugi'
 ikan = bale
 kayu = kayu
-kursi = kursi
 kecewa = mallo
 kecil = bitti'
 kejar = ula'
@@ -592,7 +591,6 @@ pohon = garontok kayu
 patah = le'to
 sahut = mebali
 sakit = masaki
-pintu = ba'ba
 puji = pudi
 pulang = sule
 panas = malassu
@@ -677,7 +675,7 @@ PENTING: Gunakan kamus referensi berikut sebagai acuan utama terjemahan. Kamus i
 ATURAN TERJEMAHAN:
 1. Selalu gunakan kamus di atas sebagai referensi utama
 2. Jika kata ada di kamus, WAJIB gunakan terjemahan dari kamus tersebut
-3. Tabe' la' kumande na = "Permisi, saya mau makan" (BUKAN selamat datang)
+3. Tabe' la' kumande = "Permisi, saya mau makan" (BUKAN selamat datang)
 4. Umba ko lako = "Mau ke mana kamu?" 
 5. Mbani = "di mana" (untuk menanyakan lokasi/posisi)
 6. Untuk kata yang tidak ada di kamus, terjemahkan berdasarkan pengetahuan bahasa Toraja
@@ -754,27 +752,11 @@ direction = st.selectbox(
 
 # Placeholder sesuai arah
 if direction == "toraja_to_indo":
-    placeholder = 'Contoh: "Umba ko lako?" atau "Tabe\', la\' pia-pia i\'"'
     label = "Masukkan teks Bahasa Toraja"
 else:
-    placeholder = 'Contoh: "Selamat datang di rumah kami" atau "Apa kabarmu hari ini?"'
     label = "Masukkan teks Bahasa Indonesia"
 
-text_input = st.text_area(label, placeholder=placeholder, height=120)
-
-# Contoh kalimat
-st.markdown("""
-<div style="margin: -0.5rem 0 1rem;">
-<p style="font-size:0.72rem; color:#6b5040; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px;">Contoh kalimat:</p>
-<div class="example-chips">
-  <span class="chip">Umba ko lako?</span>
-  <span class="chip">Tabe' la' kumande</span>
-  <span class="chip">Rambu Solo'</span>
-  <span class="chip">Tongkonan</span>
-  <span class="chip">Ma'nene'</span>
-</div>
-</div>
-""", unsafe_allow_html=True)
+text_input = st.text_area(label, height=120)
 
 translate_btn = st.button("🔤 Terjemahkan")
 
@@ -875,11 +857,3 @@ if translate_btn:
                 st.error(f"Kesalahan API: {e}")
             except Exception as e:
                 st.error(f"Terjadi kesalahan: {e}")
-
-# ── Footer ────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="footer">
-  TorajaTranslate AI — Melestarikan Bahasa & Budaya Toraja, Sulawesi Selatan<br>
-  Tugas Besar Kecerdasan Buatan 2026
-</div>
-""", unsafe_allow_html=True)
