@@ -393,6 +393,7 @@ melambi' = pagi
 "Umba ko lako?" = "Mau ke mana kamu?"
 
 === KAMUS LENGKAP BAHASA TORAJA (A-Z) ===
+aku = aku
 abu = abu
 ada = den
 adapun = ia tu
