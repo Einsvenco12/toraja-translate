@@ -19,9 +19,9 @@ st.markdown("""
 *, html, body { box-sizing: border-box; }
 html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 
-/* Background — putih bersih */
+/* Background — krem hangat */
 .stApp {
-    background: #fdf8f2;
+    background: linear-gradient(135deg, #f5e6d0 0%, #ede0cc 50%, #e8d5b7 100%);
     min-height: 100vh;
 }
 
@@ -34,15 +34,15 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
         45deg,
         transparent,
         transparent 40px,
-        rgba(139,69,19,0.04) 40px,
-        rgba(139,69,19,0.04) 41px
+        rgba(139,69,19,0.06) 40px,
+        rgba(139,69,19,0.06) 41px
     ),
     repeating-linear-gradient(
         -45deg,
         transparent,
         transparent 40px,
-        rgba(139,69,19,0.04) 40px,
-        rgba(139,69,19,0.04) 41px
+        rgba(139,69,19,0.06) 40px,
+        rgba(139,69,19,0.06) 41px
     );
     pointer-events: none;
     z-index: 0;
@@ -100,8 +100,8 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 
 /* ── Input area ── */
 .stTextArea textarea {
-    background: #fff8f0 !important;
-    border: 1px solid rgba(139,69,19,0.25) !important;
+    background: rgba(255,248,240,0.8) !important;
+    border: 1px solid rgba(139,69,19,0.3) !important;
     border-radius: 12px !important;
     color: #3d1f0a !important;
     font-family: 'Outfit', sans-serif !important;
@@ -136,13 +136,13 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 
 /* ── Select box ── */
 .stSelectbox > div > div {
-    background: #fff8f0 !important;
-    border: 1px solid rgba(139,69,19,0.25) !important;
+    background: rgba(255,248,240,0.8) !important;
+    border: 1px solid rgba(139,69,19,0.3) !important;
     border-radius: 10px !important;
     color: #3d1f0a !important;
 }
 label, .stTextArea label, .stSelectbox label {
-    color: #8b5e3c !important;
+    color: #6b3d1a !important;
     font-size: 0.8rem !important;
     letter-spacing: 1.5px !important;
     text-transform: uppercase !important;
@@ -158,14 +158,15 @@ label, .stTextArea label, .stSelectbox label {
 }
 
 .card {
-    background: #fff8f0;
-    border: 1px solid rgba(139,69,19,0.15);
+    background: rgba(255,248,235,0.85);
+    border: 1px solid rgba(139,69,19,0.2);
     border-radius: 16px;
     padding: 1.5rem 1.75rem;
     margin: 0.75rem 0;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(139,69,19,0.08);
+    box-shadow: 0 2px 16px rgba(139,69,19,0.1);
+    backdrop-filter: blur(4px);
 }
 .card::before {
     content: '';
@@ -192,7 +193,7 @@ label, .stTextArea label, .stSelectbox label {
 }
 .original-text {
     font-size: 0.95rem;
-    color: #7a4f2d;
+    color: #6b3d1a;
     line-height: 1.7;
     font-style: italic;
 }
@@ -208,8 +209,8 @@ label, .stTextArea label, .stSelectbox label {
     margin-top: 0.5rem;
 }
 .word-item {
-    background: #fef0e0;
-    border: 1px solid rgba(139,69,19,0.15);
+    background: rgba(255,235,200,0.7);
+    border: 1px solid rgba(139,69,19,0.2);
     border-radius: 10px;
     padding: 0.6rem 0.9rem;
 }
@@ -226,7 +227,7 @@ label, .stTextArea label, .stSelectbox label {
 }
 .cultural-badge {
     display: inline-block;
-    background: #fef0e0;
+    background: rgba(205,133,63,0.15);
     border: 1px solid rgba(139,69,19,0.25);
     color: #7a3d0a;
     padding: 4px 12px;
@@ -241,12 +242,12 @@ label, .stTextArea label, .stSelectbox label {
 .footer {
     text-align: center;
     padding: 2rem 0 1rem;
-    color: #b8936a;
+    color: #a07040;
     font-size: 0.78rem;
     letter-spacing: 0.5px;
 }
 .stSpinner > div { border-top-color: #cd853f !important; }
-hr { border-color: rgba(139,69,19,0.1) !important; margin: 1.2rem 0 !important; }
+hr { border-color: rgba(139,69,19,0.15) !important; margin: 1.2rem 0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
