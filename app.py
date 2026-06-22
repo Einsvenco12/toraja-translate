@@ -1209,9 +1209,6 @@ with tab3:
     </div>
     """, unsafe_allow_html=True)
 
-    layout="centered",
-)
-
 # ── Custom CSS — Warm earthy Toraja aesthetic ─────────────────────────────────
 st.markdown("""
 <style>
