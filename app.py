@@ -4,18 +4,9 @@ import re
 import os
 import requests
 
-# ── Page config ───────────────────────────────────────────────────────────────
-st.set_page_config(
-    page_title="Toraja Translate AI",import streamlit as st
-import json
-import re
-import os
-import requests
-
-# ── Page config ───────────────────────────────────────────────────────────────
+# ── Page config ─────────────────────────────────────────
 st.set_page_config(
     page_title="Toraja Translate AI",
-
     layout="centered",
 )
 
