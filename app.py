@@ -67,17 +67,17 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.8rem;
     font-weight: 700;
-    color: #5c2d0a;
+    color: #3d1a00;
     letter-spacing: -0.5px;
     margin: 0;
     line-height: 1.1;
 }
-.hero h1 span { color: #cd853f; font-style: italic; }
+.hero h1 span { color: #5a1f00; font-style: italic; }
 .hero-sub {
-    color: #8b5e3c;
+    color: #3d1a00;
     font-size: 0.9rem;
     margin-top: 0.5rem;
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -91,7 +91,7 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 /* ── Direction selector ── */
 .direction-label {
     font-size: 0.75rem;
-    color: #8b5e3c;
+    color: #3d1a00;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -142,7 +142,7 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
     color: #3d1f0a !important;
 }
 label, .stTextArea label, .stSelectbox label {
-    color: #6b3d1a !important;
+    color: #3d1a00 !important;
     font-size: 0.8rem !important;
     letter-spacing: 1.5px !important;
     text-transform: uppercase !important;
@@ -181,7 +181,7 @@ label, .stTextArea label, .stSelectbox label {
     font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #8b4513;
+    color: #5a1f00;
     margin-bottom: 0.75rem;
 }
 .translation-text {
@@ -193,13 +193,13 @@ label, .stTextArea label, .stSelectbox label {
 }
 .original-text {
     font-size: 0.95rem;
-    color: #6b3d1a;
+    color: #3d1a00;
     line-height: 1.7;
     font-style: italic;
 }
 .context-text {
     font-size: 0.9rem;
-    color: #5c3317;
+    color: #2a0f00;
     line-height: 1.8;
 }
 .word-grid {
@@ -218,18 +218,18 @@ label, .stTextArea label, .stSelectbox label {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #5c2d0a;
+    color: #2a0f00;
 }
 .word-indo {
     font-size: 0.8rem;
-    color: #8b5e3c;
+    color: #3d1a00;
     margin-top: 2px;
 }
 .cultural-badge {
     display: inline-block;
     background: rgba(205,133,63,0.15);
     border: 1px solid rgba(139,69,19,0.25);
-    color: #7a3d0a;
+    color: #2a0f00;
     padding: 4px 12px;
     border-radius: 99px;
     font-size: 0.75rem;
@@ -242,7 +242,7 @@ label, .stTextArea label, .stSelectbox label {
 .footer {
     text-align: center;
     padding: 2rem 0 1rem;
-    color: #a07040;
+    color: #3d1a00;
     font-size: 0.78rem;
     letter-spacing: 0.5px;
 }
@@ -887,7 +887,7 @@ st.markdown("""
   <h1>Toraja<span>Translate</span></h1>
   <p class="hero-sub">Melestarikan Bahasa & Budaya Toraja Utara</p>
   <div class="divider"></div>
-  <p style="color:#7a5c3a; font-size:0.82rem; font-style:italic; margin-top:-0.3rem;">
+  <p style="color:#3d1a00; font-size:0.82rem; font-style:italic; margin-top:-0.3rem;">
     ✦ Kurre Sumanga' — Toraja Utara ✦
   </p>
 </div>
@@ -933,7 +933,7 @@ with tab1:
                     st.markdown('<div class="result-wrap">', unsafe_allow_html=True)
 
                     # Hasil terjemahan + tombol salin
-                    lafal_html = f'<div style="font-size:0.85rem; color:#9e7e5a; margin-top:6px; font-style:italic;">🔊 Lafal: {lafal}</div>' if lafal else ""
+                    lafal_html = f'<div style="font-size:0.85rem; color:#3d1a00; margin-top:6px; font-style:italic;">🔊 Lafal: {lafal}</div>' if lafal else ""
                     st.markdown(f"""
                     <div class="card">
                       <div class="card-label">Hasil Terjemahan</div>
@@ -1020,9 +1020,9 @@ with tab1:
 with tab2:
     st.markdown("""
     <div style="text-align:center; padding: 1rem 0 0.5rem;">
-      <div style="font-size:0.7rem; color:#cd853f; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Uji Kemampuanmu</div>
+      <div style="font-size:0.7rem; color:#5a1f00; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Uji Kemampuanmu</div>
       <div style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#f5deb3; font-weight:600;">Kuis Bahasa Toraja</div>
-      <div style="font-size:0.85rem; color:#9e7e5a; margin-top:4px;">Tebak arti kata dalam Bahasa Toraja</div>
+      <div style="font-size:0.85rem; color:#3d1a00; margin-top:4px;">Tebak arti kata dalam Bahasa Toraja</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1055,8 +1055,8 @@ with tab2:
         <div style="text-align:center; padding:2rem 0;">
           <div style="font-size:3rem;">{emoji}</div>
           <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#f5deb3; margin:0.5rem 0;">{skor} / {total}</div>
-          <div style="font-size:1rem; color:#cd853f; font-weight:600;">{persen}% Benar</div>
-          <div style="font-size:0.9rem; color:#9e7e5a; margin-top:0.5rem;">{pesan}</div>
+          <div style="font-size:1rem; color:#5a1f00; font-weight:600;">{persen}% Benar</div>
+          <div style="font-size:0.9rem; color:#3d1a00; margin-top:0.5rem;">{pesan}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1076,7 +1076,7 @@ with tab2:
         progress = idx / total
         st.markdown(f"""
         <div style="margin: 0.5rem 0 1rem;">
-          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#9e7e5a; margin-bottom:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#3d1a00; margin-bottom:4px;">
             <span>Soal {idx + 1} dari {total}</span>
             <span>Skor: {st.session_state.kuis_skor}</span>
           </div>
@@ -1089,7 +1089,7 @@ with tab2:
         # Soal
         st.markdown(f"""
         <div class="card" style="text-align:center; padding:2rem;">
-          <div style="font-size:0.7rem; color:#cd853f; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem;">Apa artinya?</div>
+          <div style="font-size:0.7rem; color:#5a1f00; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem;">Apa artinya?</div>
           <div style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:#f5deb3; font-weight:700; font-style:italic;">"{soal['toraja']}"</div>
         </div>
         """, unsafe_allow_html=True)
@@ -1128,7 +1128,7 @@ with tab2:
             if jawaban == soal["indonesia"]:
                 st.markdown("""<div style="text-align:center; color:#4caf50; font-weight:600; margin:0.5rem 0;">🎉 Benar! Kurre sumanga'!</div>""", unsafe_allow_html=True)
             else:
-                st.markdown(f"""<div style="text-align:center; color:#f44336; font-weight:600; margin:0.5rem 0;">Jawaban benar: <span style="color:#cd853f;">{soal['indonesia']}</span></div>""", unsafe_allow_html=True)
+                st.markdown(f"""<div style="text-align:center; color:#f44336; font-weight:600; margin:0.5rem 0;">Jawaban benar: <span style="color:#5a1f00;">{soal['indonesia']}</span></div>""", unsafe_allow_html=True)
 
             if idx + 1 < total:
                 if st.button("Soal Berikutnya →", use_container_width=True):
