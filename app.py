@@ -802,127 +802,337 @@ Untuk {src_label} ke {tgt_label}."""
 
 # ── UI ─────────────────────────────────────────────────────────────────────────
 
-# Hero
+# ── Kuis data (dari kamus terverifikasi) ─────────────────────────────────────
+KUIS_DATA = [
+    {"toraja": "Kurre sumanga'", "indonesia": "Terima kasih", "pilihan": ["Selamat datang", "Terima kasih", "Permisi", "Selamat pagi"]},
+    {"toraja": "Salama' melambi'", "indonesia": "Selamat pagi", "pilihan": ["Selamat malam", "Selamat sore", "Selamat pagi", "Selamat datang"]},
+    {"toraja": "Umba ko lako?", "indonesia": "Mau ke mana kamu?", "pilihan": ["Siapa namamu?", "Di mana rumahmu?", "Mau ke mana kamu?", "Apa kabar?"]},
+    {"toraja": "Kumande", "indonesia": "Makan", "pilihan": ["Minum", "Tidur", "Makan", "Pergi"]},
+    {"toraja": "Mamma'", "indonesia": "Tidur", "pilihan": ["Tidur", "Makan", "Duduk", "Berdiri"]},
+    {"toraja": "Banua", "indonesia": "Rumah", "pilihan": ["Sekolah", "Rumah", "Pasar", "Jalan"]},
+    {"toraja": "Indo'", "indonesia": "Ibu", "pilihan": ["Ayah", "Kakak", "Ibu", "Adik"]},
+    {"toraja": "Ambe'", "indonesia": "Ayah", "pilihan": ["Ibu", "Ayah", "Nenek", "Kakek"]},
+    {"toraja": "Tondok", "indonesia": "Kampung / Desa", "pilihan": ["Kota", "Kampung / Desa", "Pasar", "Sekolah"]},
+    {"toraja": "Buda", "indonesia": "Banyak", "pilihan": ["Sedikit", "Besar", "Banyak", "Kecil"]},
+    {"toraja": "Mapia", "indonesia": "Baik / Bagus", "pilihan": ["Jelek", "Baik / Bagus", "Buruk", "Mahal"]},
+    {"toraja": "Male", "indonesia": "Pergi", "pilihan": ["Datang", "Pergi", "Tidur", "Makan"]},
+    {"toraja": "Mambela", "indonesia": "Jauh", "pilihan": ["Dekat", "Jauh", "Tinggi", "Rendah"]},
+    {"toraja": "Bongi", "indonesia": "Malam", "pilihan": ["Pagi", "Siang", "Sore", "Malam"]},
+    {"toraja": "Masiang", "indonesia": "Besok", "pilihan": ["Kemarin", "Hari ini", "Besok", "Minggu depan"]},
+    {"toraja": "Kaboro'ki tama", "indonesia": "Selamat datang", "pilihan": ["Selamat tinggal", "Selamat datang", "Terima kasih", "Permisi"]},
+    {"toraja": "Tabe'", "indonesia": "Permisi / Maaf", "pilihan": ["Terima kasih", "Permisi / Maaf", "Selamat", "Tolong"]},
+    {"toraja": "Salu", "indonesia": "Sungai", "pilihan": ["Laut", "Danau", "Sungai", "Gunung"]},
+    {"toraja": "Tedong", "indonesia": "Kerbau", "pilihan": ["Sapi", "Kerbau", "Kambing", "Ayam"]},
+    {"toraja": "Tongkonan", "indonesia": "Rumah adat Toraja", "pilihan": ["Rumah biasa", "Rumah adat Toraja", "Istana", "Masjid"]},
+]
+
+# ── Hero ───────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
   <span class="hero-ornament">🛖</span>
   <h1>Toraja<span>Translate</span></h1>
-  <p class="hero-sub">Penerjemah Bahasa Toraja · Berbasis AI</p>
+  <p class="hero-sub">Melestarikan Bahasa & Budaya Tana Toraja</p>
   <div class="divider"></div>
+  <p style="color:#7a5c3a; font-size:0.82rem; font-style:italic; margin-top:-0.3rem;">
+    ✦ Kurre Sumanga' — Tana Toraja ✦
+  </p>
 </div>
 """, unsafe_allow_html=True)
 
-# Arah terjemahan
-direction = st.selectbox(
-    "Arah terjemahan",
-    options=["toraja_to_indo", "indo_to_toraja"],
-    format_func=lambda x: "🗣️ Toraja → Bahasa Indonesia" if x == "toraja_to_indo" else "🗣️ Bahasa Indonesia → Toraja",
-)
+# ── Tab navigasi ───────────────────────────────────────────────────────────────
+tab1, tab2, tab3 = st.tabs(["🔤 Terjemahkan", "🎯 Kuis Bahasa", "ℹ️ Tentang"])
 
-# Placeholder sesuai arah
-if direction == "toraja_to_indo":
-    label = "Masukkan teks Bahasa Toraja"
-else:
-    label = "Masukkan teks Bahasa Indonesia"
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 1 — TERJEMAHKAN
+# ════════════════════════════════════════════════════════════════════════════════
+with tab1:
+    direction = st.selectbox(
+        "Arah terjemahan",
+        options=["toraja_to_indo", "indo_to_toraja"],
+        format_func=lambda x: "🗣️ Toraja → Bahasa Indonesia" if x == "toraja_to_indo" else "🗣️ Bahasa Indonesia → Toraja",
+    )
 
-text_input = st.text_area(label, height=120)
-
-translate_btn = st.button("🔤 Terjemahkan")
-
-# ── Result ────────────────────────────────────────────────────────────────────
-if translate_btn:
-    if not text_input.strip():
-        st.warning("Masukkan teks yang ingin diterjemahkan dulu ya!")
+    if direction == "toraja_to_indo":
+        label = "Masukkan teks Bahasa Toraja"
     else:
-        with st.spinner("AI sedang menerjemahkan dan menggali konteks budaya Toraja..."):
-            try:
-                result = translate_toraja(text_input.strip(), direction)
+        label = "Masukkan teks Bahasa Indonesia"
 
-                terjemahan   = result.get("terjemahan", "")
-                lafal        = result.get("lafal", "")
-                konteks      = result.get("konteks_budaya", "")
-                kata_kata    = result.get("kata_per_kata", [])
-                info_budaya  = result.get("info_budaya", [])
-                tingkat      = result.get("tingkat_kesulitan", "Umum")
-                catatan      = result.get("catatan", "")
+    text_input = st.text_area(label, height=120)
+    translate_btn = st.button("🔤 Terjemahkan")
 
-                st.markdown('<div class="result-wrap">', unsafe_allow_html=True)
+    if translate_btn:
+        if not text_input.strip():
+            st.warning("Masukkan teks yang ingin diterjemahkan dulu ya!")
+        else:
+            with st.spinner("AI sedang menerjemahkan dan menggali konteks budaya Toraja..."):
+                try:
+                    result = translate_toraja(text_input.strip(), direction)
 
-                # Hasil terjemahan utama
-                lafal_html = f'<div style="font-size:0.85rem; color:#9e7e5a; margin-top:6px; font-style:italic;">🔊 Lafal: {lafal}</div>' if lafal else ""
-                st.markdown(f"""
-                <div class="card">
-                  <div class="card-label">Hasil Terjemahan</div>
-                  <div class="translation-text">{terjemahan}</div>
-                  {lafal_html}
-                  <div style="margin-top:10px;">
-                    <span class="cultural-badge">📚 {tingkat}</span>
-                  </div>
-                </div>
-                """, unsafe_allow_html=True)
+                    terjemahan  = result.get("terjemahan", "")
+                    lafal       = result.get("lafal", "")
+                    konteks     = result.get("konteks_budaya", "")
+                    kata_kata   = result.get("kata_per_kata", [])
+                    info_budaya = result.get("info_budaya", [])
+                    tingkat     = result.get("tingkat_kesulitan", "Umum")
+                    catatan     = result.get("catatan", "")
 
-                # Teks asli
-                st.markdown(f"""
-                <div class="card">
-                  <div class="card-label">Teks Asli</div>
-                  <div class="original-text">"{text_input.strip()}"</div>
-                </div>
-                """, unsafe_allow_html=True)
+                    st.markdown('<div class="result-wrap">', unsafe_allow_html=True)
 
-                # Kata per kata
-                if kata_kata:
-                    words_html = ""
-                    for w in kata_kata:
-                        t = w.get("toraja", "")
-                        i = w.get("indonesia", "")
-                        if t and i:
-                            words_html += f"""
-                            <div class="word-item">
-                              <div class="word-toraja">{t}</div>
-                              <div class="word-indo">{i}</div>
-                            </div>"""
-                    if words_html:
+                    # Hasil terjemahan + tombol salin
+                    lafal_html = f'<div style="font-size:0.85rem; color:#9e7e5a; margin-top:6px; font-style:italic;">🔊 Lafal: {lafal}</div>' if lafal else ""
+                    st.markdown(f"""
+                    <div class="card">
+                      <div class="card-label">Hasil Terjemahan</div>
+                      <div class="translation-text">{terjemahan}</div>
+                      {lafal_html}
+                      <div style="margin-top:10px;">
+                        <span class="cultural-badge">📚 {tingkat}</span>
+                      </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                    # Tombol salin
+                    st.code(terjemahan, language=None)
+
+                    # Teks asli
+                    st.markdown(f"""
+                    <div class="card">
+                      <div class="card-label">Teks Asli</div>
+                      <div class="original-text">"{text_input.strip()}"</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                    # Kata per kata
+                    if kata_kata:
+                        words_html = ""
+                        for w in kata_kata:
+                            t = w.get("toraja", "")
+                            i = w.get("indonesia", "")
+                            if t and i:
+                                words_html += f"""
+                                <div class="word-item">
+                                  <div class="word-toraja">{t}</div>
+                                  <div class="word-indo">{i}</div>
+                                </div>"""
+                        if words_html:
+                            st.markdown(f"""
+                            <div class="card">
+                              <div class="card-label">Arti Kata per Kata</div>
+                              <div class="word-grid">{words_html}</div>
+                            </div>
+                            """, unsafe_allow_html=True)
+
+                    # Konteks budaya
+                    if konteks:
                         st.markdown(f"""
                         <div class="card">
-                          <div class="card-label">Arti Kata per Kata</div>
-                          <div class="word-grid">{words_html}</div>
+                          <div class="card-label">🏛️ Konteks Budaya Toraja</div>
+                          <div class="context-text">{konteks}</div>
                         </div>
                         """, unsafe_allow_html=True)
 
-                # Konteks budaya
-                if konteks:
-                    st.markdown(f"""
-                    <div class="card">
-                      <div class="card-label">🏛️ Konteks Budaya Toraja</div>
-                      <div class="context-text">{konteks}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    # Info budaya
+                    if info_budaya:
+                        badges = "".join(f'<span class="cultural-badge">✦ {i}</span>' for i in info_budaya)
+                        st.markdown(f"""
+                        <div class="card">
+                          <div class="card-label">💡 Fakta Budaya</div>
+                          <div style="margin-top:4px;">{badges}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
-                # Info budaya
-                if info_budaya:
-                    badges = "".join(f'<span class="cultural-badge">✦ {i}</span>' for i in info_budaya)
-                    st.markdown(f"""
-                    <div class="card">
-                      <div class="card-label">💡 Fakta Budaya</div>
-                      <div style="margin-top:4px;">{badges}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    # Catatan
+                    if catatan:
+                        st.markdown(f"""
+                        <div class="card" style="border-color:rgba(205,133,63,0.35);">
+                          <div class="card-label">📝 Catatan</div>
+                          <div class="context-text">{catatan}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
-                # Catatan
-                if catatan:
-                    st.markdown(f"""
-                    <div class="card" style="border-color:rgba(205,133,63,0.35);">
-                      <div class="card-label">📝 Catatan</div>
-                      <div class="context-text">{catatan}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    st.markdown('</div>', unsafe_allow_html=True)
+                    st.success("Terjemahan selesai! 🎉")
 
-                st.markdown('</div>', unsafe_allow_html=True)
-                st.success("Terjemahan selesai! 🎉")
+                except json.JSONDecodeError:
+                    st.error("Format response AI tidak valid. Coba lagi ya!")
+                except requests.exceptions.HTTPError as e:
+                    st.error(f"Kesalahan API: {e}")
+                except Exception as e:
+                    st.error(f"Terjadi kesalahan: {e}")
 
-            except json.JSONDecodeError:
-                st.error("Format response AI tidak valid. Coba lagi ya!")
-            except requests.exceptions.HTTPError as e:
-                st.error(f"Kesalahan API: {e}")
-            except Exception as e:
-                st.error(f"Terjadi kesalahan: {e}")
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 2 — KUIS BAHASA TORAJA
+# ════════════════════════════════════════════════════════════════════════════════
+with tab2:
+    st.markdown("""
+    <div style="text-align:center; padding: 1rem 0 0.5rem;">
+      <div style="font-size:0.7rem; color:#cd853f; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Uji Kemampuanmu</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#f5deb3; font-weight:600;">Kuis Bahasa Toraja</div>
+      <div style="font-size:0.85rem; color:#9e7e5a; margin-top:4px;">Tebak arti kata dalam Bahasa Toraja</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Inisialisasi session state
+    if "kuis_index" not in st.session_state:
+        st.session_state.kuis_index = 0
+        st.session_state.kuis_skor = 0
+        st.session_state.kuis_jawab = None
+        st.session_state.kuis_selesai = False
+        import random
+        st.session_state.kuis_urutan = random.sample(range(len(KUIS_DATA)), len(KUIS_DATA))
+
+    idx = st.session_state.kuis_index
+    total = len(KUIS_DATA)
+
+    if st.session_state.kuis_selesai:
+        skor = st.session_state.kuis_skor
+        persen = int((skor / total) * 100)
+        if persen >= 80:
+            emoji = "🏆"
+            pesan = "Luar biasa! Kamu sangat menguasai Bahasa Toraja!"
+        elif persen >= 60:
+            emoji = "⭐"
+            pesan = "Bagus! Terus belajar Bahasa Toraja!"
+        else:
+            emoji = "📚"
+            pesan = "Jangan menyerah! Terus berlatih ya!"
+
+        st.markdown(f"""
+        <div style="text-align:center; padding:2rem 0;">
+          <div style="font-size:3rem;">{emoji}</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#f5deb3; margin:0.5rem 0;">{skor} / {total}</div>
+          <div style="font-size:1rem; color:#cd853f; font-weight:600;">{persen}% Benar</div>
+          <div style="font-size:0.9rem; color:#9e7e5a; margin-top:0.5rem;">{pesan}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button("🔄 Mulai Kuis Lagi"):
+            import random
+            st.session_state.kuis_index = 0
+            st.session_state.kuis_skor = 0
+            st.session_state.kuis_jawab = None
+            st.session_state.kuis_selesai = False
+            st.session_state.kuis_urutan = random.sample(range(len(KUIS_DATA)), len(KUIS_DATA))
+            st.rerun()
+    else:
+        soal_idx = st.session_state.kuis_urutan[idx]
+        soal = KUIS_DATA[soal_idx]
+
+        # Progress bar
+        progress = idx / total
+        st.markdown(f"""
+        <div style="margin: 0.5rem 0 1rem;">
+          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#9e7e5a; margin-bottom:4px;">
+            <span>Soal {idx + 1} dari {total}</span>
+            <span>Skor: {st.session_state.kuis_skor}</span>
+          </div>
+          <div style="background:rgba(205,133,63,0.15); border-radius:99px; height:6px;">
+            <div style="background:linear-gradient(90deg,#8b4513,#cd853f); border-radius:99px; height:6px; width:{int(progress*100)}%;"></div>
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Soal
+        st.markdown(f"""
+        <div class="card" style="text-align:center; padding:2rem;">
+          <div style="font-size:0.7rem; color:#cd853f; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem;">Apa artinya?</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:#f5deb3; font-weight:700; font-style:italic;">"{soal['toraja']}"</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Pilihan jawaban
+        import random
+        if "kuis_pilihan_acak" not in st.session_state or st.session_state.get("kuis_last_idx") != idx:
+            acak = soal["pilihan"].copy()
+            random.shuffle(acak)
+            st.session_state.kuis_pilihan_acak = acak
+            st.session_state.kuis_last_idx = idx
+
+        pilihan = st.session_state.kuis_pilihan_acak
+        jawaban = st.session_state.kuis_jawab
+
+        col1, col2 = st.columns(2)
+        for i, p in enumerate(pilihan):
+            col = col1 if i % 2 == 0 else col2
+            with col:
+                if jawaban is None:
+                    if st.button(p, key=f"jawab_{i}", use_container_width=True):
+                        st.session_state.kuis_jawab = p
+                        if p == soal["indonesia"]:
+                            st.session_state.kuis_skor += 1
+                        st.rerun()
+                else:
+                    if p == soal["indonesia"]:
+                        st.success(f"✅ {p}")
+                    elif p == jawaban:
+                        st.error(f"❌ {p}")
+                    else:
+                        st.button(p, key=f"jawab_{i}", disabled=True, use_container_width=True)
+
+        # Feedback & lanjut
+        if jawaban is not None:
+            if jawaban == soal["indonesia"]:
+                st.markdown("""<div style="text-align:center; color:#4caf50; font-weight:600; margin:0.5rem 0;">🎉 Benar! Kurre sumanga'!</div>""", unsafe_allow_html=True)
+            else:
+                st.markdown(f"""<div style="text-align:center; color:#f44336; font-weight:600; margin:0.5rem 0;">Jawaban benar: <span style="color:#cd853f;">{soal['indonesia']}</span></div>""", unsafe_allow_html=True)
+
+            if idx + 1 < total:
+                if st.button("Soal Berikutnya →", use_container_width=True):
+                    st.session_state.kuis_index += 1
+                    st.session_state.kuis_jawab = None
+                    if "kuis_pilihan_acak" in st.session_state:
+                        del st.session_state.kuis_pilihan_acak
+                    st.rerun()
+            else:
+                if st.button("Lihat Hasil Akhir 🏆", use_container_width=True):
+                    st.session_state.kuis_selesai = True
+                    st.rerun()
+
+# ════════════════════════════════════════════════════════════════════════════════
+# TAB 3 — TENTANG
+# ════════════════════════════════════════════════════════════════════════════════
+with tab3:
+    st.markdown("""
+    <div style="padding: 1rem 0;">
+      <div class="card">
+        <div class="card-label">🛖 Tentang Aplikasi</div>
+        <div class="context-text">
+          <b style="color:#f5deb3;">TorajaTranslate AI</b> adalah aplikasi penerjemah Bahasa Toraja berbasis kecerdasan buatan yang dikembangkan untuk membantu melestarikan Bahasa dan Budaya Tana Toraja, Sulawesi Selatan, Indonesia.
+          <br><br>
+          Bahasa Toraja merupakan salah satu kekayaan budaya Indonesia yang perlu dijaga dan dilestarikan. Aplikasi ini hadir sebagai langkah kecil dalam mendokumentasikan dan memperkenalkan Bahasa Toraja kepada masyarakat luas.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">⚙️ Teknologi</div>
+        <div class="context-text">
+          <span class="cultural-badge">🐍 Python</span>
+          <span class="cultural-badge">🎯 Streamlit</span>
+          <span class="cultural-badge">🤖 Llama 3.3 70B</span>
+          <span class="cultural-badge">⚡ Groq API</span>
+          <span class="cultural-badge">📚 Kamus Toraja</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">✨ Fitur</div>
+        <div class="context-text">
+          <span class="cultural-badge">🔄 Terjemah 2 Arah</span>
+          <span class="cultural-badge">📖 Arti Kata per Kata</span>
+          <span class="cultural-badge">🏛️ Konteks Budaya</span>
+          <span class="cultural-badge">💡 Fakta Budaya</span>
+          <span class="cultural-badge">🎯 Kuis Bahasa</span>
+          <span class="cultural-badge">📋 Salin Hasil</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">🌏 Tentang Bahasa Toraja</div>
+        <div class="context-text">
+          Bahasa Toraja atau Tae' adalah bahasa yang digunakan oleh Suku Toraja di Kabupaten Tana Toraja dan Toraja Utara, Sulawesi Selatan. Bahasa ini memiliki beberapa dialek, termasuk dialek Makale-Rantepao yang paling umum digunakan.
+          <br><br>
+          Budaya Toraja dikenal melalui upacara <b style="color:#cd853f;">Rambu Solo'</b> (pemakaman) dan <b style="color:#cd853f;">Rambu Tuka'</b> (syukuran), serta rumah adat <b style="color:#cd853f;">Tongkonan</b> yang ikonik.
+        </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
