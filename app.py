@@ -19,13 +19,9 @@ st.markdown("""
 *, html, body { box-sizing: border-box; }
 html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 
-/* Background — warm terracotta earthy */
+/* Background — putih bersih */
 .stApp {
-    background: #1a0e08;
-    background-image:
-        radial-gradient(ellipse at 20% 20%, rgba(139,69,19,0.25) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 80%, rgba(184,115,51,0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 50% 50%, rgba(26,14,8,1) 0%, transparent 100%);
+    background: #fdf8f2;
     min-height: 100vh;
 }
 
@@ -38,15 +34,15 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
         45deg,
         transparent,
         transparent 40px,
-        rgba(184,115,51,0.03) 40px,
-        rgba(184,115,51,0.03) 41px
+        rgba(139,69,19,0.04) 40px,
+        rgba(139,69,19,0.04) 41px
     ),
     repeating-linear-gradient(
         -45deg,
         transparent,
         transparent 40px,
-        rgba(184,115,51,0.03) 40px,
-        rgba(184,115,51,0.03) 41px
+        rgba(139,69,19,0.04) 40px,
+        rgba(139,69,19,0.04) 41px
     );
     pointer-events: none;
     z-index: 0;
@@ -71,14 +67,14 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.8rem;
     font-weight: 700;
-    color: #f5deb3;
+    color: #5c2d0a;
     letter-spacing: -0.5px;
     margin: 0;
     line-height: 1.1;
 }
 .hero h1 span { color: #cd853f; font-style: italic; }
 .hero-sub {
-    color: #9e7e5a;
+    color: #8b5e3c;
     font-size: 0.9rem;
     margin-top: 0.5rem;
     font-weight: 300;
@@ -95,7 +91,7 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 /* ── Direction selector ── */
 .direction-label {
     font-size: 0.75rem;
-    color: #9e7e5a;
+    color: #8b5e3c;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -104,19 +100,19 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 
 /* ── Input area ── */
 .stTextArea textarea {
-    background: rgba(205,133,63,0.08) !important;
-    border: 1px solid rgba(205,133,63,0.25) !important;
+    background: #fff8f0 !important;
+    border: 1px solid rgba(139,69,19,0.25) !important;
     border-radius: 12px !important;
-    color: #f5deb3 !important;
+    color: #3d1f0a !important;
     font-family: 'Outfit', sans-serif !important;
     font-size: 1rem !important;
     line-height: 1.7 !important;
 }
 .stTextArea textarea:focus {
-    border-color: rgba(205,133,63,0.6) !important;
-    box-shadow: 0 0 0 3px rgba(205,133,63,0.1) !important;
+    border-color: rgba(139,69,19,0.6) !important;
+    box-shadow: 0 0 0 3px rgba(205,133,63,0.15) !important;
 }
-.stTextArea textarea::placeholder { color: #6b5040 !important; }
+.stTextArea textarea::placeholder { color: #b8936a !important; }
 
 /* ── Button ── */
 .stButton > button {
@@ -135,18 +131,18 @@ html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 }
 .stButton > button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 24px rgba(139,69,19,0.4) !important;
+    box-shadow: 0 8px 24px rgba(139,69,19,0.3) !important;
 }
 
 /* ── Select box ── */
 .stSelectbox > div > div {
-    background: rgba(205,133,63,0.08) !important;
-    border: 1px solid rgba(205,133,63,0.25) !important;
+    background: #fff8f0 !important;
+    border: 1px solid rgba(139,69,19,0.25) !important;
     border-radius: 10px !important;
-    color: #f5deb3 !important;
+    color: #3d1f0a !important;
 }
 label, .stTextArea label, .stSelectbox label {
-    color: #9e7e5a !important;
+    color: #8b5e3c !important;
     font-size: 0.8rem !important;
     letter-spacing: 1.5px !important;
     text-transform: uppercase !important;
@@ -162,13 +158,14 @@ label, .stTextArea label, .stSelectbox label {
 }
 
 .card {
-    background: rgba(205,133,63,0.07);
-    border: 1px solid rgba(205,133,63,0.2);
+    background: #fff8f0;
+    border: 1px solid rgba(139,69,19,0.15);
     border-radius: 16px;
     padding: 1.5rem 1.75rem;
     margin: 0.75rem 0;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(139,69,19,0.08);
 }
 .card::before {
     content: '';
@@ -183,25 +180,25 @@ label, .stTextArea label, .stSelectbox label {
     font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #cd853f;
+    color: #8b4513;
     margin-bottom: 0.75rem;
 }
 .translation-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     line-height: 1.6;
-    color: #f5deb3;
+    color: #3d1f0a;
     font-weight: 600;
 }
 .original-text {
     font-size: 0.95rem;
-    color: #b8936a;
+    color: #7a4f2d;
     line-height: 1.7;
     font-style: italic;
 }
 .context-text {
     font-size: 0.9rem;
-    color: #c8a882;
+    color: #5c3317;
     line-height: 1.8;
 }
 .word-grid {
@@ -211,8 +208,8 @@ label, .stTextArea label, .stSelectbox label {
     margin-top: 0.5rem;
 }
 .word-item {
-    background: rgba(139,69,19,0.2);
-    border: 1px solid rgba(205,133,63,0.2);
+    background: #fef0e0;
+    border: 1px solid rgba(139,69,19,0.15);
     border-radius: 10px;
     padding: 0.6rem 0.9rem;
 }
@@ -220,18 +217,18 @@ label, .stTextArea label, .stSelectbox label {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #f5deb3;
+    color: #5c2d0a;
 }
 .word-indo {
     font-size: 0.8rem;
-    color: #9e7e5a;
+    color: #8b5e3c;
     margin-top: 2px;
 }
 .cultural-badge {
     display: inline-block;
-    background: rgba(139,69,19,0.3);
-    border: 1px solid rgba(205,133,63,0.35);
-    color: #e8c49a;
+    background: #fef0e0;
+    border: 1px solid rgba(139,69,19,0.25);
+    color: #7a3d0a;
     padding: 4px 12px;
     border-radius: 99px;
     font-size: 0.75rem;
@@ -240,33 +237,16 @@ label, .stTextArea label, .stSelectbox label {
     letter-spacing: 0.5px;
 }
 
-/* ── Examples row ── */
-.example-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 0.5rem;
-}
-.chip {
-    background: rgba(205,133,63,0.1);
-    border: 1px solid rgba(205,133,63,0.2);
-    color: #b8936a;
-    padding: 5px 12px;
-    border-radius: 99px;
-    font-size: 0.8rem;
-    cursor: pointer;
-}
-
 /* ── Footer ── */
 .footer {
     text-align: center;
     padding: 2rem 0 1rem;
-    color: #4a3020;
+    color: #b8936a;
     font-size: 0.78rem;
     letter-spacing: 0.5px;
 }
 .stSpinner > div { border-top-color: #cd853f !important; }
-hr { border-color: rgba(205,133,63,0.1) !important; margin: 1.2rem 0 !important; }
+hr { border-color: rgba(139,69,19,0.1) !important; margin: 1.2rem 0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -735,7 +715,7 @@ def translate_toraja(text: str, direction: str) -> dict:
         src_label = "Indonesia"
         tgt_label = "Toraja"
 
-    system_prompt = f"""Kamu adalah ahli bahasa Toraja (Tae' dan Sa'dan Toraja) asli dari Tana Toraja, Sulawesi Selatan, Indonesia.
+    system_prompt = f"""Kamu adalah ahli bahasa Toraja (Tae' dan Sa'dan Toraja) asli dari Toraja Utara, Sulawesi Selatan, Indonesia.
 
 PENTING: Gunakan kamus referensi berikut sebagai acuan utama terjemahan. Kamus ini HARUS diikuti dengan tepat:
 
@@ -904,10 +884,10 @@ st.markdown("""
 <div class="hero">
   <span class="hero-ornament">🛖</span>
   <h1>Toraja<span>Translate</span></h1>
-  <p class="hero-sub">Melestarikan Bahasa & Budaya Tana Toraja</p>
+  <p class="hero-sub">Melestarikan Bahasa & Budaya Toraja Utara</p>
   <div class="divider"></div>
   <p style="color:#7a5c3a; font-size:0.82rem; font-style:italic; margin-top:-0.3rem;">
-    ✦ Kurre Sumanga' — Tana Toraja ✦
+    ✦ Kurre Sumanga' — Toraja Utara ✦
   </p>
 </div>
 """, unsafe_allow_html=True)
@@ -1170,7 +1150,7 @@ with tab3:
       <div class="card">
         <div class="card-label">🛖 Tentang Aplikasi</div>
         <div class="context-text">
-          <b style="color:#f5deb3;">TorajaTranslate AI</b> adalah aplikasi penerjemah Bahasa Toraja berbasis kecerdasan buatan yang dikembangkan untuk membantu melestarikan Bahasa dan Budaya Tana Toraja, Sulawesi Selatan, Indonesia.
+          <b style="color:#5c2d0a;">TorajaTranslate AI</b> adalah aplikasi penerjemah Bahasa Toraja berbasis kecerdasan buatan yang dikembangkan untuk membantu melestarikan Bahasa dan Budaya Toraja Utara, Sulawesi Selatan, Indonesia.
           <br><br>
           Bahasa Toraja merupakan salah satu kekayaan budaya Indonesia yang perlu dijaga dan dilestarikan. Aplikasi ini hadir sebagai langkah kecil dalam mendokumentasikan dan memperkenalkan Bahasa Toraja kepada masyarakat luas.
         </div>
@@ -1204,7 +1184,7 @@ with tab3:
         <div class="context-text">
           Bahasa Toraja atau Tae' adalah bahasa yang digunakan oleh Suku Toraja di Kabupaten Tana Toraja dan Toraja Utara, Sulawesi Selatan. Bahasa ini memiliki beberapa dialek, termasuk dialek Makale-Rantepao yang paling umum digunakan.
           <br><br>
-          Budaya Toraja dikenal melalui upacara <b style="color:#cd853f;">Rambu Solo'</b> (pemakaman) dan <b style="color:#cd853f;">Rambu Tuka'</b> (syukuran), serta rumah adat <b style="color:#cd853f;">Tongkonan</b> yang ikonik.
+          Budaya Toraja dikenal melalui upacara <b style="color:#8b4513;">Rambu Solo'</b> (pemakaman) dan <b style="color:#8b4513;">Rambu Tuka'</b> (syukuran), serta rumah adat <b style="color:#8b4513;">Tongkonan</b> yang ikonik.
         </div>
       </div>
     </div>
