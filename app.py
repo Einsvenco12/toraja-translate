@@ -2047,7 +2047,7 @@ with tab1:
     direction = st.selectbox(
         "Arah terjemahan",
         options=["toraja_to_indo", "indo_to_toraja"],
-        format_func=lambda x: "🗣️ Toraja → Bahasa Indonesia" if x == "toraja_to_indo" else "🗣️ Bahasa Indonesia → Toraja",
+        format_func=lambda x: "🗣️ Toraja → Bahasa Indonesia" if x == "toraja_to_indo" else "🗣️ Bahasa Indonesia → Toraja",key="direction_select"
     )
 
     if direction == "toraja_to_indo":
