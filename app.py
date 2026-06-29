@@ -1000,8 +1000,8 @@ with tab2:
     st.markdown("""
     <div style="text-align:center; padding: 1rem 0 0.5rem;">
       <div style="font-size:0.7rem; color:#a78bfa; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Uji Kemampuanmu</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#fff; font-weight:800;">Kuis Bahasa Toraja</div>
-      <div style="font-size:0.85rem; color:#333; margin-top:4px;">Tebak arti kata dalam Bahasa Toraja</div>
+      <div style="font-family:'Poppins',sans-serif; font-size:1.6rem; color:#fff; font-weight:800; text-shadow:0 2px 8px rgba(0,0,0,0.2);">Kuis Bahasa Toraja</div>
+      <div style="font-size:0.85rem; color:rgba(255,255,255,0.85); margin-top:4px;">Tebak arti kata dalam Bahasa Toraja</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1033,8 +1033,8 @@ with tab2:
         st.markdown(f"""
         <div style="text-align:center; padding:2rem 0;">
           <div style="font-size:3rem;">{emoji}</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#fff; margin:0.5rem 0;">{skor} / {total}</div>
-          <div style="font-size:1rem; color:#a78bfa; font-weight:700;">{persen}% Benar</div>
+          <div style="font-family:'Poppins',sans-serif; font-size:2rem; color:#fff; margin:0.5rem 0; font-weight:800; text-shadow:0 2px 8px rgba(0,0,0,0.2);">{skor} / {total}</div>
+          <div style="font-size:1rem; color:#e0c3fc; font-weight:700;">{persen}% Benar</div>
           <div style="font-size:0.9rem; color:rgba(255,255,255,0.9); margin-top:0.5rem;">{pesan}</div>
         </div>
         """, unsafe_allow_html=True)
@@ -1068,8 +1068,8 @@ with tab2:
         # Soal
         st.markdown(f"""
         <div class="card" style="text-align:center; padding:2rem;">
-          <div style="font-size:0.7rem; color:#a78bfa; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem;">Apa artinya?</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:#fff; font-weight:700; font-style:italic;">"{soal['toraja']}"</div>
+          <div style="font-size:0.7rem; color:#667eea; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem; font-weight:800;">Apa artinya?</div>
+          <div style="font-family:'Poppins',sans-serif; font-size:2.2rem; color:#4c1d95; font-weight:800; font-style:italic;">"{soal['toraja']}"</div>
         </div>
         """, unsafe_allow_html=True)
 
