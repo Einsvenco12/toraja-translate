@@ -11,161 +11,224 @@ st.set_page_config(
     layout="centered",
 )
 
-# ── Custom CSS — Modern Clean Design ─────────────────────────────────────────
+# ── Custom CSS — Colorful Modern Theme ───────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,400;0,600;0,700;1,600&display=swap');
 
 *, html, body { box-sizing: border-box; }
-html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+html, body, [class*="css"] { font-family: 'Nunito', sans-serif; }
 
-/* Background putih bersih */
-.stApp { background: #f0f2f5; min-height: 100vh; }
+/* Background gradient colorful */
+.stApp {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    min-height: 100vh;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-/* Accent bar merah di paling atas */
+/* Glass overlay untuk konten */
 .stApp::before {
     content: '';
     position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #c0392b, #e67e22, #f39c12);
-    z-index: 999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(0px);
+    pointer-events: none;
+    z-index: 0;
 }
 
 #MainMenu, footer, header { visibility: hidden; }
-.block-container { position: relative; z-index: 1; padding-top: 1.5rem !important; max-width: 780px !important; }
+.block-container {
+    position: relative; z-index: 1;
+    padding-top: 1.5rem !important;
+    max-width: 800px !important;
+}
 
 /* ── Hero ── */
 .hero { text-align: center; padding: 2rem 0 1rem; }
-.hero-ornament { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.hero-ornament { font-size: 3rem; margin-bottom: 0.5rem; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
 .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem; font-weight: 700;
-    color: #1a1a2e; margin: 0; line-height: 1.1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem; font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, #e0c3fc 50%, #8ec5fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0; line-height: 1.1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
-.hero h1 span { color: #c0392b; font-style: italic; }
+.hero h1 span {
+    font-style: italic;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 .hero-sub {
-    color: #555; font-size: 0.82rem; margin-top: 0.5rem;
-    font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.9); font-size: 0.82rem; margin-top: 0.5rem;
+    font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 .divider {
-    width: 40px; height: 3px;
-    background: linear-gradient(90deg, #c0392b, #e67e22);
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, #ffecd2, #fcb69f, #ffecd2);
     margin: 0.8rem auto; border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(252,182,159,0.5);
+}
+
+/* ── Glassmorphism container ── */
+.glass-container {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 /* ── Input ── */
 .stTextArea textarea {
-    background: #fff !important;
-    border: 1.5px solid #ddd !important;
-    border-radius: 10px !important;
-    color: #1a1a2e !important;
-    font-family: 'Inter', sans-serif !important;
+    background: rgba(255,255,255,0.95) !important;
+    border: 2px solid rgba(255,255,255,0.5) !important;
+    border-radius: 14px !important;
+    color: #2d1b69 !important;
+    font-family: 'Nunito', sans-serif !important;
     font-size: 0.95rem !important;
     line-height: 1.7 !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
 }
 .stTextArea textarea:focus {
-    border-color: #c0392b !important;
-    box-shadow: 0 0 0 3px rgba(192,57,43,0.1) !important;
+    border-color: #a78bfa !important;
+    box-shadow: 0 0 0 4px rgba(167,139,250,0.2) !important;
 }
-.stTextArea textarea::placeholder { color: #aaa !important; }
+.stTextArea textarea::placeholder { color: #9ca3af !important; }
 
 /* ── Button ── */
 .stButton > button {
-    background: linear-gradient(135deg, #c0392b, #e74c3c) !important;
-    color: #fff !important; font-weight: 600 !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.88rem !important; border: none !important;
-    border-radius: 10px !important; padding: 0.65rem 1.5rem !important;
-    width: 100% !important; letter-spacing: 0.3px !important;
-    transition: all 0.2s !important;
-    box-shadow: 0 2px 8px rgba(192,57,43,0.25) !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: #fff !important; font-weight: 800 !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 0.9rem !important; border: none !important;
+    border-radius: 14px !important; padding: 0.7rem 1.5rem !important;
+    width: 100% !important; letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s !important;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4) !important;
 }
 .stButton > button:hover {
-    transform: translateY(-1px) !important;
-    box-shadow: 0 5px 14px rgba(192,57,43,0.35) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102,126,234,0.5) !important;
+    background: linear-gradient(135deg, #764ba2, #667eea) !important;
 }
 
 /* ── Selectbox ── */
 .stSelectbox > div > div {
-    background: #fff !important; border: 1.5px solid #ddd !important;
-    border-radius: 10px !important; color: #1a1a2e !important;
+    background: rgba(255,255,255,0.95) !important;
+    border: 2px solid rgba(255,255,255,0.5) !important;
+    border-radius: 14px !important;
+    color: #2d1b69 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
 }
 label, .stTextArea label, .stSelectbox label {
-    color: #555 !important; font-size: 0.75rem !important;
-    font-weight: 600 !important; letter-spacing: 1px !important;
+    color: rgba(255,255,255,0.95) !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.5px !important;
     text-transform: uppercase !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
 }
 
 /* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"] {
-    background: #fff; border-radius: 10px; padding: 4px; gap: 4px;
-    border: 1px solid #e0e0e0; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 14px; padding: 5px; gap: 5px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 .stTabs [data-baseweb="tab"] {
-    border-radius: 8px !important; font-weight: 500 !important;
-    color: #555 !important; font-size: 0.88rem !important;
+    border-radius: 10px !important; font-weight: 700 !important;
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 0.88rem !important;
 }
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg,#c0392b,#e74c3c) !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
     color: #fff !important;
+    box-shadow: 0 4px 12px rgba(102,126,234,0.4) !important;
 }
 
 /* ── Cards ── */
 .result-wrap { animation: fadeUp 0.4s ease forwards; }
 @keyframes fadeUp {
-    from { opacity:0; transform:translateY(10px); }
+    from { opacity:0; transform:translateY(14px); }
     to   { opacity:1; transform:translateY(0); }
 }
 .card {
-    background: #fff; border: 1px solid #e8e8e8;
-    border-radius: 14px; padding: 1.25rem 1.5rem;
-    margin: 0.6rem 0; position: relative; overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 18px; padding: 1.25rem 1.5rem;
+    margin: 0.7rem 0; position: relative; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
+.card:hover { transform: translateY(-2px); }
 .card::before {
     content: ''; position: absolute; top: 0; left: 0;
-    width: 4px; height: 100%;
-    background: linear-gradient(180deg, #c0392b, #e67e22);
-    border-radius: 4px 0 0 4px;
+    width: 5px; height: 100%;
+    background: linear-gradient(180deg, #667eea, #f093fb, #4facfe);
+    border-radius: 5px 0 0 5px;
 }
 .card-label {
-    font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: #c0392b; margin-bottom: 0.6rem;
+    font-size: 0.65rem; font-weight: 800;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.6rem;
 }
 .translation-text {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem; line-height: 1.5;
-    color: #1a1a2e; font-weight: 600;
+    color: #1a1a2e; font-weight: 700;
 }
-.original-text { font-size: 0.9rem; color: #555; line-height: 1.7; font-style: italic; }
-.context-text { font-size: 0.88rem; color: #444; line-height: 1.8; }
+.original-text { font-size: 0.9rem; color: #6b7280; line-height: 1.7; font-style: italic; }
+.context-text { font-size: 0.88rem; color: #374151; line-height: 1.8; }
 .word-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 8px; margin-top: 0.5rem;
 }
 .word-item {
-    background: #f8f9fa; border: 1px solid #e8e8e8;
-    border-radius: 8px; padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08));
+    border: 1px solid rgba(102,126,234,0.2);
+    border-radius: 10px; padding: 0.5rem 0.75rem;
 }
 .word-toraja {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 600; color: #1a1a2e;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem; font-weight: 700; color: #4c1d95;
 }
-.word-indo { font-size: 0.78rem; color: #666; margin-top: 2px; }
+.word-indo { font-size: 0.78rem; color: #6b7280; margin-top: 2px; }
 .cultural-badge {
-    display: inline-block; background: #fff3f3;
-    border: 1px solid #f5c6c6; color: #c0392b;
-    padding: 4px 10px; border-radius: 99px;
-    font-size: 0.72rem; font-weight: 500; margin: 3px 3px 3px 0;
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(102,126,234,0.12), rgba(240,147,251,0.12));
+    border: 1px solid rgba(102,126,234,0.25); color: #4c1d95;
+    padding: 4px 12px; border-radius: 99px;
+    font-size: 0.72rem; font-weight: 700; margin: 3px 3px 3px 0;
 }
-.stSpinner > div { border-top-color: #c0392b !important; }
-hr { border-color: #e8e8e8 !important; margin: 1rem 0 !important; }
+.stSpinner > div { border-top-color: #667eea !important; }
+hr { border-color: rgba(255,255,255,0.3) !important; margin: 1rem 0 !important; }
 </style>
 """, unsafe_allow_html=True)
+
 
 # ── Anthropic client ──────────────────────────────────────────────────────────
 # ── Kamus Bahasa Toraja (Tae') ────────────────────────────────────────────────
@@ -803,7 +866,7 @@ st.markdown("""
   <h1>Toraja<span>Translate</span></h1>
   <p class="hero-sub">Melestarikan Bahasa & Budaya Toraja Utara</p>
   <div class="divider"></div>
-  <p style="color:#888; font-size:0.8rem; font-style:italic; margin-top:-0.2rem;">
+  <p style="color:rgba(255,255,255,0.75); font-size:0.8rem; font-style:italic; margin-top:-0.2rem;">
     ✦ Kurre Sumanga' — Toraja Utara ✦
   </p>
 </div>
@@ -936,8 +999,8 @@ with tab1:
 with tab2:
     st.markdown("""
     <div style="text-align:center; padding: 1rem 0 0.5rem;">
-      <div style="font-size:0.7rem; color:#c0392b; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Uji Kemampuanmu</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#f5deb3; font-weight:600;">Kuis Bahasa Toraja</div>
+      <div style="font-size:0.7rem; color:#a78bfa; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Uji Kemampuanmu</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#fff; font-weight:800;">Kuis Bahasa Toraja</div>
       <div style="font-size:0.85rem; color:#333; margin-top:4px;">Tebak arti kata dalam Bahasa Toraja</div>
     </div>
     """, unsafe_allow_html=True)
@@ -970,9 +1033,9 @@ with tab2:
         st.markdown(f"""
         <div style="text-align:center; padding:2rem 0;">
           <div style="font-size:3rem;">{emoji}</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#f5deb3; margin:0.5rem 0;">{skor} / {total}</div>
-          <div style="font-size:1rem; color:#c0392b; font-weight:600;">{persen}% Benar</div>
-          <div style="font-size:0.9rem; color:#333; margin-top:0.5rem;">{pesan}</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#fff; margin:0.5rem 0;">{skor} / {total}</div>
+          <div style="font-size:1rem; color:#a78bfa; font-weight:700;">{persen}% Benar</div>
+          <div style="font-size:0.9rem; color:rgba(255,255,255,0.9); margin-top:0.5rem;">{pesan}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -992,12 +1055,12 @@ with tab2:
         progress = idx / total
         st.markdown(f"""
         <div style="margin: 0.5rem 0 1rem;">
-          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#333; margin-bottom:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:rgba(255,255,255,0.9); margin-bottom:4px;">
             <span>Soal {idx + 1} dari {total}</span>
             <span>Skor: {st.session_state.kuis_skor}</span>
           </div>
-          <div style="background:rgba(205,133,63,0.15); border-radius:99px; height:6px;">
-            <div style="background:linear-gradient(90deg,#8b4513,#cd853f); border-radius:99px; height:6px; width:{int(progress*100)}%;"></div>
+          <div style="background:rgba(255,255,255,0.2); border-radius:99px; height:6px;">
+            <div style="background:linear-gradient(90deg,#667eea,#f093fb); border-radius:99px; height:6px; width:{int(progress*100)}%;"></div>
           </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1005,8 +1068,8 @@ with tab2:
         # Soal
         st.markdown(f"""
         <div class="card" style="text-align:center; padding:2rem;">
-          <div style="font-size:0.7rem; color:#c0392b; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem;">Apa artinya?</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:#f5deb3; font-weight:700; font-style:italic;">"{soal['toraja']}"</div>
+          <div style="font-size:0.7rem; color:#a78bfa; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.75rem;">Apa artinya?</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:#fff; font-weight:700; font-style:italic;">"{soal['toraja']}"</div>
         </div>
         """, unsafe_allow_html=True)
 
